@@ -1,0 +1,12 @@
+PRUEBA EN LIMPIO DEL DIA 1
+Fecha: 2026-11-25 16:35
+Rama: dia-01-configuracion
+Origen: https://github.com/Master6869/mini-inventario.git
+README.md: presente
+.gitignore: presente
+AGENTS.md: presente
+AGENTS.md: 14 lineas; limite 20: OK
+Exclusiones: .env, venv/archivo.txt, node_modules/archivo.txt
+.env no rastreado: OK
+README documenta Node.js 22 y Python 3.12: OK
+Estado Git del clon: limpio
