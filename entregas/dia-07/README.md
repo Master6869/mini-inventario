@@ -17,7 +17,7 @@ La comparación muestra diferencias entre los borradores. El fallo del entorno i
 
 Con el mismo pedido se hizo una tercera sesión de solo lectura, suministrando la skill y las etiquetas reales como contexto. El [resultado](skill-contexto-explicito.md) usa las credenciales del entorno, crea un nombre único, acota la edición a su fila, cubre un valor correcto y uno inválido, y plantea limpiar su propio producto. Cambiaron dos variables, la skill y el contexto del repositorio. Queda pendiente aislar el efecto de la activación automática.
 
-La corrección consistió en aportar once etiquetas, rutas o condiciones del flujo como contexto, además del texto de la skill. La propuesta todavía debe manejar el caso en que la creación falle y la limpieza no encuentre la fila.
+La corrección consistió en aportar las etiquetas, rutas y condiciones del flujo como contexto, además del texto de la skill. La propuesta todavía debe manejar el caso en que la creación falle y la limpieza no encuentre la fila.
 
 ## Revisión
 
