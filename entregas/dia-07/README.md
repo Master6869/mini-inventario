@@ -13,6 +13,12 @@ Ejecuté dos sesiones efímeras y de solo lectura con el mismo pedido: «Escribe
 
 La comparación muestra diferencias entre los borradores. El fallo del entorno impide atribuirlas a la lectura de la skill. Para repetir la prueba en el proyecto habría que configurar una cuenta de pruebas, usar solo el producto creado por el caso y comprobar que una edición inválida conserva el valor anterior. Esta rama todavía carece de SKU, por lo que la skill contempla un nombre único mientras tanto.
 
+## Reintento con la skill cargada explícitamente
+
+Con el mismo pedido se hizo una tercera sesión de solo lectura, suministrando la skill y las etiquetas reales como contexto. El [resultado](skill-contexto-explicito.md) usa las credenciales del entorno, crea un nombre único, acota la edición a su fila, cubre un valor correcto y uno inválido, y plantea limpiar su propio producto. Cambiaron dos variables, la skill y el contexto del repositorio. Queda pendiente aislar el efecto de la activación automática.
+
+La corrección consistió en aportar once etiquetas, rutas o condiciones del flujo como contexto, además del texto de la skill. La propuesta todavía debe manejar el caso en que la creación falle y la limpieza no encuentre la fila.
+
 ## Revisión
 
 El subagente de solo lectura revisó el diff contra main y el diff contra la base del Día 4. El resultado de git status --porcelain fue vacío antes y después. No encontró credenciales privadas ni consultas sin aislamiento propias del Día 7.
