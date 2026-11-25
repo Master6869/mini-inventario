@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: #172536; background: #eef3f7; }
+main { max-width: 960px; margin: 44px auto; padding: 0 20px; }
+h1 { font-size: 38px; margin: 0 0 22px; letter-spacing: -1px; }
+h2 { font-size: 21px; margin: 0 0 16px; }
+section { background: white; border: 1px solid #ccd9e3; border-radius: 12px; padding: 24px; margin-bottom: 18px; }
+form { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; }
+label { display: grid; gap: 5px; font-weight: 600; flex: 1 1 100px; }
+label:first-child { flex-grow: 3; }
+input, button { font: inherit; padding: 8px 12px; border-radius: 6px; }
+input { width: 100%; border: 1px solid #8497a8; }
+button { background: #125e57; color: white; border: 1px solid transparent; cursor: pointer; }
+tbody button, #cancelar { color: #125e57; background: #eaf5f1; }
+button:focus-visible, input:focus-visible { outline: 3px solid #3276c5; outline-offset: 2px; }
+#estado { margin: 12px 0 0; }
+#estado:empty { display: none; }
+.tabla { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+td, th { padding: 12px; border-bottom: 1px solid #dae3ea; text-align: left; }
+th { background: #eef3f7; }
+.bajo { color: #a03426; font-weight: 700; }

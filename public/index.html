@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini Inventario</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main>
+    <h1>Mini Inventario</h1>
+    <section aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Agregar producto</h2>
+      <form>
+        <label>Producto<input name="nombre" required maxlength="100"></label>
+        <label>Cantidad<input name="cantidad" type="number" min="0" step="1" required></label>
+        <label>Mínimo<input name="minimo" type="number" min="0" step="1" required></label>
+        <button type="submit">Guardar producto</button>
+        <button type="button" id="cancelar" hidden>Cancelar edición</button>
+      </form>
+      <p role="status" id="estado"></p>
+    </section>
+    <section aria-labelledby="titulo-listado">
+      <h2 id="titulo-listado">Productos</h2>
+      <p id="vacio">Todavía no hay productos.</p>
+      <div class="tabla">
+        <table hidden>
+          <thead>
+            <tr><th>Producto</th><th>Cantidad</th><th>Mínimo</th><th>Estado</th><th>Acción</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
