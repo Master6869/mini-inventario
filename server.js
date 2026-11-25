@@ -47,8 +47,14 @@ if (require.main === module) {
   } catch (error) {
     if (error.code !== 'ENOENT') throw error;
   }
-  crearApp().listen(process.env.PORT || 3000, () => {
-    console.log(`Mini Inventario: http://localhost:${process.env.PORT || 3000}`);
+  const puerto = process.env.PORT || 3000;
+  crearApp().listen(puerto, error => {
+    if (error) {
+      console.error(`No se pudo iniciar el servidor en el puerto ${puerto}: ${error.code}`);
+      process.exitCode = 1;
+      return;
+    }
+    console.log(`Mini Inventario: http://localhost:${puerto}`);
   });
 }
 
