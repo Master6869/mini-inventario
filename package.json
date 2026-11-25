@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "build": "esbuild scripts/supabase-browser.js --bundle --format=esm --platform=browser --target=es2022 --minify --outfile=public/vendor/supabase.js",
-    "test": "node --test"
+    "test": "npm run test:unit",
+    "test:unit": "node --test test/rls.test.js test/servidor.test.js",
+    "test:e2e": "playwright test"
   },
   "engines": {
     "node": ">=22"
@@ -17,6 +19,8 @@
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.6.0",
+    "@playwright/test": "1.65.1",
+    "@types/node": "26.6.10",
     "esbuild": "0.28.2",
     "playwright": "1.65.1"
   }

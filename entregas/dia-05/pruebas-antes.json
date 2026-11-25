@@ -1,0 +1,31 @@
+{
+  "estado": "failed",
+  "casos": [
+    {
+      "prueba": "iniciar sesión con la cuenta de pruebas y cerrar sesión",
+      "estado": "passed",
+      "duracionMs": 1852,
+      "errores": []
+    },
+    {
+      "prueba": "rechazar una contraseña incorrecta",
+      "estado": "passed",
+      "duracionMs": 1371,
+      "errores": []
+    },
+    {
+      "prueba": "agregar un producto y comprobar que persiste al recargar",
+      "estado": "passed",
+      "duracionMs": 2553,
+      "errores": []
+    },
+    {
+      "prueba": "marcar stock bajo y respetar el límite de igualdad",
+      "estado": "failed",
+      "duracionMs": 2300,
+      "errores": [
+        "Error: Estado y acciones deben caber sin desplazamiento horizontal\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m668\u001b[39m"
+      ]
+    }
+  ]
+}

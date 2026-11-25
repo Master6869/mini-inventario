@@ -1,0 +1,31 @@
+{
+  "estado": "failed",
+  "casos": [
+    {
+      "prueba": "iniciar sesión con la cuenta de pruebas y cerrar sesión",
+      "estado": "passed",
+      "duracionMs": 2003,
+      "errores": []
+    },
+    {
+      "prueba": "rechazar una contraseña incorrecta",
+      "estado": "passed",
+      "duracionMs": 1395,
+      "errores": []
+    },
+    {
+      "prueba": "agregar un producto y comprobar que persiste al recargar",
+      "estado": "passed",
+      "duracionMs": 2565,
+      "errores": []
+    },
+    {
+      "prueba": "marcar stock bajo y respetar el límite de igualdad",
+      "estado": "failed",
+      "duracionMs": 15355,
+      "errores": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody tr').filter({ hasText: 'E2E-D5-68d75d5230d94f9e92ccc0e8abaa99b8' }).getByText('Stock suficiente', { exact: true })\nExpected: visible\nTimeout: 12000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('tbody tr').filter({ hasText: 'E2E-D5-68d75d5230d94f9e92ccc0e8abaa99b8' }).getByText('Stock suficiente', { exact: true }) with timeout 12000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody tr').filter({ hasText: 'E2E-D5-68d75d5230d94f9e92ccc0e8abaa99b8' }).getByText('Stock suficiente', { exact: true })\u001b[22m\n"
+      ]
+    }
+  ]
+}

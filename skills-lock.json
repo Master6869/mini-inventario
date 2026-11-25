@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "playwright-cli": {
+      "source": "microsoft/playwright-cli",
+      "sourceType": "github",
+      "skillPath": "skills/playwright-cli/SKILL.md",
+      "computedHash": "9e77ed73d5b39ad206e7ec8918a84e21ba82b4d6b1598cd5ecadbff795c36601"
+    },
     "supabase": {
       "source": "supabase/agent-skills",
       "sourceType": "github",

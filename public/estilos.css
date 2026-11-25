@@ -27,3 +27,30 @@ tbody .peligro { color: #8f2921; background: #fff0ed; }
 button:disabled { opacity: .6; cursor: wait; }
 #estado-acceso { overflow-wrap: anywhere; }
 #sesion:empty { display: none; }
+
+@media (max-width: 600px) {
+  .tabla { overflow-x: visible; }
+  table, tbody { display: block; width: 100%; }
+  thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  tbody { display: grid; gap: 12px; }
+  tr { display: block; border: 1px solid #dae3ea; border-radius: 8px; padding: 12px; }
+  td {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 8px;
+    padding: 8px 0;
+    border: 0;
+    overflow-wrap: anywhere;
+  }
+  td::before { content: attr(data-label); color: #172536; font-weight: 600; }
+  td.acciones { display: flex; flex-wrap: wrap; gap: 8px; }
+  td.acciones::before { flex-basis: 100%; }
+  td.acciones button + button { margin-left: 0; }
+}
