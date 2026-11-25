@@ -1,26 +1,22 @@
 # Día 07 — Skill y subagente
 
-La rama parte del PR borrador del Día 4, donde están Supabase y las pruebas disponibles. El repositorio no tenía ramas para los días 5 y 6.
+La rama parte del PR borrador del Día 4, donde están Supabase y las pruebas disponibles. No se encontraron ramas de los días 5 o 6 en GitHub.
 
-## Pedido que se compara
+## Comparación
 
-«Escribe una prueba de Playwright para editar un producto».
+Ejecuté dos sesiones efímeras y de solo lectura con el mismo pedido: «Escribe una prueba de Playwright para editar un producto».
 
-### Borrador anterior a la skill
+| Sesión | Resultado observado |
+|---|---|
+| [Sin la skill](sin-skill.md) | Selecciona una fila por su celda y comprueba persistencia al recargar. Supone una ruta y un producto preexistente. Omite el acceso, la limpieza y el caso inválido. |
+| [Con la skill disponible](con-skill.md) | Codex detectó la skill, pero su entorno de ejecución falló antes de que pudiera leerla. El borrador añadió restauración del nombre, aunque conservó una ruta supuesta y una sesión preexistente. Tampoco cubrió un error. |
 
-```js
-test('editar un producto', async ({ page }) => {
-  await page.goto('/');
-  await page.getByRole('button', { name: 'Editar' }).first().click();
-  await page.getByLabel('Cantidad', { exact: true }).fill('6');
-  await page.getByRole('button', { name: 'Guardar producto' }).click();
-  await expect(page.getByRole('row').filter({ hasText: 'Tornillos' }))
-    .toContainText('6');
-});
-```
+La comparación muestra diferencias entre los borradores. El fallo del entorno impide atribuirlas a la lectura de la skill. Para repetir la prueba en el proyecto habría que configurar una cuenta de pruebas, usar solo el producto creado por el caso y comprobar que una edición inválida conserva el valor anterior. Esta rama todavía carece de SKU, por lo que la skill contempla un nombre único mientras tanto.
 
-### Revisión del borrador
+## Revisión
 
-El primer borrador supone una sesión abierta y un producto existente. Selecciona la primera fila editable, aunque luego verifica una fila distinta. La skill pide credenciales desde el entorno, crear un producto único, usar su fila, comprobar que persiste al recargar y cubrir una edición inválida. La rama del Día 4 todavía carece de SKU y requiere identificar cada producto de prueba por nombre único.
+El subagente de solo lectura revisó el diff contra main y el diff contra la base del Día 4. El resultado de git status --porcelain fue vacío antes y después. No encontró credenciales privadas ni consultas sin aislamiento propias del Día 7.
 
-El borrador inicial está conservado aquí para comparar. Queda pendiente ejecutar el mismo pedido en dos conversaciones limpias y verificar la prueba con una cuenta de pruebas autorizada.
+- Gravedad media, esta bitácora. Faltaban los resultados de ambas sesiones. Se agregaron los borradores reales y el error que impidió validar el efecto de la skill.
+- Gravedad media, scripts/verificar-ui.cjs. Las pruebas heredadas de navegador cubren el acceso y la configuración, pero queda pendiente verificar la edición con una sesión autenticada. Se necesita un entorno de pruebas autorizado.
+- Gravedad baja, .agents/skills/supabase-postgres-best-practices/references/_contributing.md. El diff contra main contiene un espacio final heredado de la rama base.
