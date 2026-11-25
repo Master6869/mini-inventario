@@ -64,7 +64,20 @@ git ls-files -- .env
 git status --short
 ```
 
-Resultados de esta prueba y captura: pendientes de la clonación de verificación.
+Resultados de la clonación de verificación realizada el 25 de noviembre de 2026:
+
+- Los tres archivos requeridos están presentes.
+- `AGENTS.md` contiene 14 líneas, dentro del límite de 20.
+- El README documenta Node.js 22 y Python 3.12.
+- Las tres rutas comprobadas están excluidas y `.env` no está rastreado.
+- La copia clonada estaba limpia al terminar la comprobación.
+- Evidencia de consola: [resultado de la prueba](resultado-prueba-en-limpio.txt).
+- Captura real del Explorador en la carpeta clonada:
+  [prueba en limpio](prueba-en-limpio.png). Windows oculta la extensión `.md`,
+  por eso muestra AGENTS y README; la comprobación de terminal verificó sus
+  nombres completos.
+
+![Archivos del Día 1 en la clonación de verificación](prueba-en-limpio.png)
 
 La prueba del Día 1 comprueba archivos, instrucciones y exclusiones. No requiere
 instalar dependencias ni demuestra que estén instaladas ambas versiones de los
