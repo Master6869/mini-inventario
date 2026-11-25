@@ -5,3 +5,6 @@ node_modules/
 !.env.example
 supabase/.temp/
 supabase/.branches/
+
+.venv/
+__pycache__/
