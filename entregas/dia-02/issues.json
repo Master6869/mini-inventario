@@ -1,0 +1,32 @@
+[
+  {
+    "id": "HU01",
+    "title": "[Día 2][HU01] Registro e inicio y cierre de sesión",
+    "criteria": 5,
+    "url": "https://github.com/Master6869/mini-inventario/issues/3"
+  },
+  {
+    "id": "HU02",
+    "title": "[Día 2][HU02] Registrar un producto con SKU",
+    "criteria": 5,
+    "url": "https://github.com/Master6869/mini-inventario/issues/4"
+  },
+  {
+    "id": "HU03",
+    "title": "[Día 2][HU03] Consultar productos y detectar stock bajo",
+    "criteria": 6,
+    "url": "https://github.com/Master6869/mini-inventario/issues/5"
+  },
+  {
+    "id": "HU04",
+    "title": "[Día 2][HU04] Editar un producto propio",
+    "criteria": 5,
+    "url": "https://github.com/Master6869/mini-inventario/issues/6"
+  },
+  {
+    "id": "HU05",
+    "title": "[Día 2][HU05] Eliminar un producto propio",
+    "criteria": 5,
+    "url": "https://github.com/Master6869/mini-inventario/issues/7"
+  }
+]
