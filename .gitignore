@@ -3,3 +3,16 @@ node_modules/
 .env
 .env.*
 !.env.example
+
+# Entornos y archivos generados de Python
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Herramientas locales y archivos temporales
+supabase/.temp/
+supabase/.branches/
+~$*.docx
