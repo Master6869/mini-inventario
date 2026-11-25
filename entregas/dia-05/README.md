@@ -9,6 +9,7 @@ volvieron a pasar las cuatro pruebas. No quedan productos temporales.
 
 - Rama: `dia-05-pruebas`, basada en `dia-04-supabase`.
 - Repositorio: https://github.com/Master6869/mini-inventario
+- Pull request: https://github.com/Master6869/mini-inventario/pull/12
 - Cliente de datos: Supabase con llave pública y sesión de la cuenta TEST.
 - Pruebas locales: http://localhost:3005; se usa este puerto para no confundir
   la copia aislada con los servidores de otras ramas en 3000 o 3001.
