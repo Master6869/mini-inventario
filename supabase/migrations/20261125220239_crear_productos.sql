@@ -1,5 +1,5 @@
--- Borrador: aplicar solo al proyecto nkmxpxhxyqwleubukfvs mediante MCP.
--- Antes de aplicar, comprobar que no existe una tabla productos previa.
+-- Aplicada mediante MCP al proyecto nkmxpxhxyqwleubukfvs.
+-- Version alineada con el historial remoto: 20261125220239. No volver a aplicar.
 create table public.productos (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null default auth.uid()

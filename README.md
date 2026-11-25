@@ -4,9 +4,10 @@ Aplicación Node.js y Express con registro e inicio de sesión por correo,
 inventario personal en Supabase y operaciones para crear, consultar, editar y
 eliminar productos. La versión del Día 3 se conserva en la rama `main`.
 
-**Estado:** la web está implementada; falta aplicar y verificar la migración en
-el proyecto remoto mediante su MCP. No se considera terminado el aislamiento
-hasta probar dos cuentas reales. Véase [la bitácora](entregas/dia-04/README.md).
+**Estado:** web implementada y migración aplicada mediante MCP al proyecto remoto.
+RLS, políticas y permisos verificados; la prueba SQL remota de CRUD y acceso
+ajeno pasó y se revirtió. Falta la prueba visual con dos cuentas reales.
+Véase [la bitácora](entregas/dia-04/README.md).
 
 ## Ejecutar
 
@@ -43,7 +44,7 @@ explica que falta configurar Supabase.
 
 El esquema está en [docs/diseno.md](docs/diseno.md). Ese documento se reconstruyó
 desde el modelo existente porque faltaba en el Día 3. La migración está en
-`supabase/migrations/20261125214301_crear_productos.sql`.
+`supabase/migrations/20261125220239_crear_productos.sql`.
 
 ```powershell
 codex mcp add supabase --url "https://mcp.supabase.com/mcp?project_ref=nkmxpxhxyqwleubukfvs"
@@ -51,9 +52,10 @@ codex mcp login supabase
 ```
 
 Si `mcp add` ya completó OAuth automáticamente, el inicio de sesión ya está
-realizado. Antes de aplicar, revisar el SQL completo y comprobar mediante MCP
-si existe una tabla productos previa. No volver a crear una tabla existente ni
-aplicar SQL por otra vía. Tras aplicar, revisar políticas, permisos y asesores.
+realizado. La migración `crear_productos` ya está aplicada; no volver a ejecutarla.
+Su versión local coincide con el historial remoto. Para futuros cambios, revisar
+el SQL completo y comprobar el esquema mediante MCP antes de aplicarlo. No
+volver a crear una tabla existente ni aplicar SQL por otra vía.
 
 La tabla usa UUID, propietario `user_id`, nombre, cantidad, mínimo y fecha. RLS
 restringe las cuatro operaciones al propietario autenticado. UPDATE comprueba
@@ -105,7 +107,7 @@ página de acceso.
 | scripts/supabase-browser.js | Entrada para compilar el SDK local. |
 | public/vendor/supabase.js | SDK compilado, sin depender de un CDN. |
 | docs/diseno.md | Campos y reglas del modelo. |
-| supabase/migrations/ | SQL pendiente de aplicar mediante MCP. |
+| supabase/migrations/ | SQL aplicado mediante MCP y alineado con el historial remoto. |
 | entregas/dia-04/ | Bitácora y evidencias con su estado real. |
 
 Las dependencias Supabase, el compilador y las herramientas de prueba tienen

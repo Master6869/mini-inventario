@@ -2,9 +2,11 @@
 
 ## Estado de la actividad
 
-Implementación local preparada. **Migración remota pendiente de revisión y de
-disponibilidad de las herramientas MCP en la sesión.** No se ha demostrado aún
-el aislamiento con dos cuentas reales del proyecto.
+Implementación local preparada y **migración remota aplicada mediante MCP**.
+RLS, cuatro políticas, permisos e índice verificados en el proyecto. Pasó una
+prueba SQL remota con el rol authenticated, un propietario confirmado y una
+identidad ajena simulada; se revirtió completamente. No se ha demostrado aún
+el aislamiento visual con dos cuentas reales del proyecto.
 
 - Repositorio: https://github.com/Master6869/mini-inventario
 - Base del Día 3: `main`, commit `a54eb40`.
@@ -34,6 +36,7 @@ el aislamiento con dos cuentas reales del proyecto.
 3. Usar únicamente llave pública y políticas `user_id = auth.uid()`.
 
 El usuario autorizó posteriormente continuar con las acciones necesarias.
+El SQL completo se mostró y explicó antes de aplicarlo.
 
 ## Un error de la IA y cómo se detectó
 
@@ -79,11 +82,35 @@ propietarios falsos y de transferencias, y acceso denegado para anon.
 Las capturas `acceso-escritorio.png` y `acceso-movil.png` documentan solo la vista
 de acceso; no son evidencias de aislamiento entre usuarios reales.
 
+## Verificación remota realizada
+
+- El MCP confirmó la URL del proyecto y que no existían tablas públicas ni
+  migraciones previas. Se aplicó `crear_productos` mediante `apply_migration`.
+- Historial remoto: versión `20261125220239`; el nombre del archivo local se
+  alineó con esa versión para evitar aplicar dos veces el mismo SQL.
+- Se comprobaron RLS activo, cuatro políticas, índice y permisos de CRUD solo
+  para authenticated; anon no tiene permisos en la tabla.
+- `scripts/verificar-rls-remoto.sql` se ejecutó mediante `execute_sql` dentro de
+  una transacción que terminó con ROLLBACK. Verificó CRUD del propietario,
+  bloqueo de SELECT/UPDATE/DELETE ajenos, rechazo de INSERT con propietario
+  falso y de transferencias, y acceso denegado para anon. No modificó usuarios
+  ni conservó productos de prueba.
+- Había un usuario confirmado al revisar Auth. Falta crear el segundo para la
+  comprobación visual y las capturas solicitadas.
+- Asesor de salud: sin hallazgos. Seguridad: un aviso previo de
+  [protección de contraseñas filtradas desactivada](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection),
+  independiente de la tabla. No se cambió la configuración de Auth.
+- Rendimiento: aviso informativo de
+  [índice sin uso](https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index).
+  Se conserva porque la tabla acaba de crearse y el índice sirve a la política
+  de propiedad.
+- Después de reiniciar Codex se volvió a iniciar el servidor en el puerto 3001.
+  La web y `/config.js` respondieron HTTP 200.
+
 ## Prueba pendiente con dos cuentas reales
 
-1. Aplicar la migración revisada mediante el MCP del proyecto y comprobar RLS,
-   políticas, permisos e índice. Ejecutar los asesores de seguridad.
-2. En Supabase Authentication → Users, crear dos usuarios de prueba confirmados.
+1. La migración, RLS, permisos y asesores ya se comprobaron; no repetir la creación.
+2. En Supabase Authentication → Users, disponer de dos usuarios confirmados.
    No guardar sus contraseñas en Git ni en esta bitácora.
 3. Abrir la web con la cuenta A, crear un producto A y comprobar editar y eliminar.
    Dejar un producto A visible y capturar la sesión con el correo de A.
