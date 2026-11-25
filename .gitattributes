@@ -1,0 +1,2 @@
+# El SDK generado conserva espacios dentro de cadenas de la biblioteca oficial.
+public/vendor/supabase.js -whitespace linguist-generated=true

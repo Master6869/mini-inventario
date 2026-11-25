@@ -19,3 +19,11 @@ table { width: 100%; border-collapse: collapse; }
 td, th { padding: 12px; border-bottom: 1px solid #dae3ea; text-align: left; }
 th { background: #eef3f7; }
 .bajo { color: #a03426; font-weight: 700; }
+[hidden] { display: none !important; }
+.subtitulo { margin: -12px 0 24px; color: #496174; }
+.secundario { color: #125e57; background: #eaf5f1; border-color: #9dbbb1; }
+td button + button { margin-left: 8px; }
+tbody .peligro { color: #8f2921; background: #fff0ed; }
+button:disabled { opacity: .6; cursor: wait; }
+#estado-acceso { overflow-wrap: anywhere; }
+#sesion:empty { display: none; }
