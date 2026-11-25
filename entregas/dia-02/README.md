@@ -8,6 +8,10 @@ issues con criterios como listas de tareas y un PR de `dia-02-planeacion`.
 
 Repositorio público: https://github.com/Master6869/mini-inventario
 
+Pull request del Día 2: https://github.com/Master6869/mini-inventario/pull/8
+
+Documento Word: [Actividad del Día 2](Actividad_Dia_02.docx).
+
 Esta planeación se completa después de los Días 3 y 4. Se conserva ese historial
 y se distinguen requisitos objetivo de funciones ya implementadas. SKU y
 paginación quedan como trabajo de implementación futuro.
