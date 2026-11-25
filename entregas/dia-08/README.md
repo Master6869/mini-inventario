@@ -16,3 +16,5 @@ Pendiente de conexión al proyecto de pruebas: comparar pasos y resultados, comp
 ## Verificación local
 
 Se comprobó la sintaxis de Python y que Git ignora el archivo de entorno. Con PostgreSQL local y dos cuentas ficticias, el rol leyó solo el producto de la cuenta autorizada. El intento de insertar prueba-escritura y el intento de leer user_id devolvieron SQLSTATE 42501.
+
+En Python 3.12.14, el cliente de FastMCP enumeró y ejecutó las dos herramientas contra una consulta simulada. Ambas usaron SELECT y un límite de 50. El nombre con instrucciones se pasó como dato, separado de la consulta. La prueba no evalúa cómo respondería un agente conectado al MCP oficial.
