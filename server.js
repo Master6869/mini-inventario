@@ -47,8 +47,8 @@ if (require.main === module) {
   } catch (error) {
     if (error.code !== 'ENOENT') throw error;
   }
-  const puerto = process.env.PORT || 3000;
-  crearApp().listen(puerto, error => {
+  const puerto = Number(process.env.PORT || 3000);
+  crearApp().listen(puerto, '0.0.0.0', error => {
     if (error) {
       console.error(`No se pudo iniciar el servidor en el puerto ${puerto}: ${error.code}`);
       process.exitCode = 1;
