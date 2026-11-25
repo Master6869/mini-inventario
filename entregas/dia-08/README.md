@@ -5,7 +5,7 @@ El servidor local ofrece buscar_producto y stock_bajo. Ambos devuelven hasta 50 
 ## Puesta en marcha
 
 1. Crea un entorno virtual con Python 3.12. Instala requirements.txt de esta carpeta del servidor con el Python del entorno.
-2. En un proyecto de pruebas autorizado, crea un rol de lectura y limítalo a los datos de prueba. Guarda la URL del Session pooler en mcp-inventario/.env como DATABASE_URL.
+2. En un proyecto de pruebas autorizado, revisa el [SQL del rol de lectura](../../mcp-inventario/rol-pruebas.sql) y limita la política a la cuenta de prueba. El SQL es una propuesta pendiente de aprobación. Guarda la URL del Session pooler en mcp-inventario/.env como DATABASE_URL.
 3. Registra el servidor usando el ejecutable del entorno y la ruta absoluta de server.py como argumento.
 4. Registra el MCP oficial con un único project_ref, read_only=true y features=database. Ejecuta la misma consulta de stock bajo en ambos.
 
