@@ -12,3 +12,7 @@ El servidor local ofrece buscar_producto y stock_bajo. Ambos devuelven hasta 50 
 Pendiente de conexión al proyecto de pruebas: comparar pasos y resultados, comprobar el rechazo de escritura y registrar cómo se maneja un nombre de producto con instrucciones incrustadas.
 
 - [Configuración del MCP oficial](https://supabase.com/docs/guides/ai-tools/mcp)
+
+## Verificación local
+
+Se comprobó la sintaxis de Python y que Git ignora el archivo de entorno. Con PostgreSQL local y dos cuentas ficticias, el rol leyó solo el producto de la cuenta autorizada. El intento de insertar prueba-escritura y el intento de leer user_id devolvieron SQLSTATE 42501.
