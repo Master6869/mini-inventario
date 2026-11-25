@@ -8,6 +8,8 @@ const envPublico = {
   SUPABASE_URL: 'https://nkmxpxhxyqwleubukfvs.supabase.co',
   SUPABASE_KEY: 'sb_publishable_prueba_sin_acceso',
   SECRETO_INTERNO: 'no-publicar-este-valor',
+  TEST_EMAIL: 'cuenta-ficticia@ejemplo.test',
+  TEST_PASSWORD: 'ContrasenaFicticiaParaTest123',
 };
 
 async function conServidor(env, verificar) {
@@ -28,6 +30,8 @@ test('/config.js publica únicamente URL y llave pública, sin caché', async ()
     assert.match(response.headers.get('content-type'), /application\/javascript/);
     const source = await response.text();
     assert.ok(!source.includes(envPublico.SECRETO_INTERNO));
+    assert.ok(!source.includes(envPublico.TEST_EMAIL));
+    assert.ok(!source.includes(envPublico.TEST_PASSWORD));
     const context = { window: {} };
     vm.runInNewContext(source, context);
     assert.deepEqual(JSON.parse(JSON.stringify(context.window.SUPABASE_CONFIG)), {

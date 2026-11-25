@@ -112,3 +112,19 @@ página de acceso.
 
 Las dependencias Supabase, el compilador y las herramientas de prueba tienen
 versiones fijadas y archivo de bloqueo. Para regenerar el SDK usa `npm run build`.
+
+## Pruebas del Día 5
+
+La rama `dia-05-pruebas` incorpora cuatro pruebas reales de Playwright Test y
+la corrección de la tabla móvil. Su configuración inicia una copia independiente
+en el puerto 3005, que debe estar libre antes de probar.
+
+Configura `TEST_EMAIL` y `TEST_PASSWORD` en `.env` con una cuenta confirmada de
+pruebas. No publiques esos valores. Ejecuta `npm run test:e2e` para la suite y
+`node scripts/demostrar-mutacion.cjs` para provocar y revertir el fallo de stock.
+`npm test` ejecuta por separado las cinco pruebas unitarias existentes.
+
+La exploración repetible se ejecuta con `node scripts/explorar-dia05.cjs` y usa
+Playwright CLI instalado globalmente. Las pruebas generan nombres UUID y limpian
+solo sus registros. El usuario eligió usar nombres únicos y posponer SKU.
+Las capturas y resultados reales están en [la bitácora del Día 5](entregas/dia-05/README.md).

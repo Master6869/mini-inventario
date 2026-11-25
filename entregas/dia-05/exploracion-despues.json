@@ -1,0 +1,21 @@
+{
+  "herramienta": "playwright-cli",
+  "fase": "despues",
+  "viewportEscritorio": [
+    1280,
+    800
+  ],
+  "viewportMovil": [
+    390,
+    844
+  ],
+  "medidas": {
+    "anchoContenedor": 300,
+    "anchoTabla": 300,
+    "anchoDocumento": 390,
+    "anchoVentana": 390
+  },
+  "stockBajoVisible": true,
+  "correoOcultoEnCapturas": true,
+  "productosResidualesDeExploracion": 0
+}

@@ -52,10 +52,14 @@ async function mostrarProductos() {
       const bajo = producto.cantidad < producto.minimo;
       for (const valor of [producto.nombre, producto.cantidad, producto.minimo,
         bajo ? 'Bajo el mínimo' : 'Stock suficiente']) {
-        fila.insertCell().textContent = valor;
+        const celda = fila.insertCell();
+        celda.textContent = valor;
+        celda.dataset.label = ['Producto', 'Cantidad', 'Mínimo', 'Estado'][celda.cellIndex];
       }
       fila.cells[3].classList.toggle('bajo', bajo);
       const acciones = fila.insertCell();
+      acciones.dataset.label = 'Acciones';
+      acciones.className = 'acciones';
       const editar = document.createElement('button');
       editar.type = 'button';
       editar.textContent = 'Editar';

@@ -1,0 +1,8 @@
+{
+  "cambioProvocado": "< por <=",
+  "resultadoMutado": "3 pruebas pasan y 1 falla en la igualdad",
+  "resultadoRestaurado": "4 pruebas pasan",
+  "hashOriginal": "67f646a9492579d2f9c4b1d1781bbc564fe447428a82fb54e5732c59e13a7b0a",
+  "hashRestaurado": "67f646a9492579d2f9c4b1d1781bbc564fe447428a82fb54e5732c59e13a7b0a",
+  "restauracionExacta": true
+}
