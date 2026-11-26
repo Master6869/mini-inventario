@@ -36,10 +36,14 @@ const test = base.extend({
     page.on('pageerror', error => errores.push(error.message));
     await use();
     if (info.status !== info.expectedStatus && !page.isClosed()) {
-      await page.screenshot({
-        path: info.outputPath('fallo-sin-credenciales.png'),
-        mask: [page.locator('#sesion'), page.locator('[name=email]'), page.locator('[name=password]')],
-      }).catch(() => {});
+      const captura = info.outputPath('fallo-sin-credenciales.png');
+      try {
+        await page.screenshot({
+          path: captura,
+          mask: [page.locator('#sesion'), page.locator('[name=email]'), page.locator('[name=password]')],
+        });
+        await info.attach('captura-sin-credenciales', { path: captura, contentType: 'image/png' });
+      } catch { /* El informe conserva la causa original aunque no se pueda capturar. */ }
     }
     expect(errores, 'Sin excepciones JavaScript no controladas').toEqual([]);
   }, { auto: true }],
