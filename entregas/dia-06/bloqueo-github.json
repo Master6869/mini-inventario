@@ -1,0 +1,13 @@
+{
+  "pullRequest": "https://github.com/Master6869/mini-inventario/pull/13",
+  "runId": 45730055514,
+  "runUrl": "https://github.com/Master6869/mini-inventario/actions/runs/45730055514",
+  "headSha": "d6928d690a41d936856b209f5083080468380b67",
+  "conclusion": "failure",
+  "jobId": 139609535654,
+  "pasosEjecutados": 0,
+  "runnerAsignado": false,
+  "anotacionGitHub": "The job was not started because your account is locked due to a billing issue.",
+  "esFalloProvocadoDePrueba": false,
+  "cicloVerdeRojoVerdeCompletado": false
+}

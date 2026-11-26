@@ -3,3 +3,15 @@ node_modules/
 .env
 .env.*
 !.env.example
+supabase/.temp/
+supabase/.branches/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+.playwright-cli/
+.auth/
+~$*.docx
