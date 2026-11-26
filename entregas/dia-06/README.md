@@ -2,11 +2,15 @@
 
 ## Estado de la entrega
 
-Workflow y reporte preparados. Las cuatro pruebas locales pasan. Pendiente de
-publicar el PR, comprobar el primer verde, provocar y diagnosticar un rojo,
-restaurar el verde y fusionar el PR.
+Workflow, cuatro secretos y PR publicados. Las cuatro pruebas locales pasan.
+**GitHub Actions no puede iniciar el job porque la cuenta está bloqueada por
+un problema de facturación**, según la anotación de GitHub. Pendiente de
+desbloquear la cuenta, comprobar el primer verde, provocar y diagnosticar un
+rojo de prueba, restaurar el verde y fusionar el PR.
 
 Repositorio público: https://github.com/Master6869/mini-inventario
+
+Pull request: https://github.com/Master6869/mini-inventario/pull/13
 
 ## Rama y alcance
 
@@ -66,9 +70,38 @@ El resultado está en [pruebas-locales.json](pruebas-locales.json).
 
 ## Evidencia remota y diagnóstico
 
-Pendiente de las ejecuciones reales. No se afirma un estado verde o rojo sin
-comprobar su conclusión en GitHub Actions. Las capturas se tomarán de las páginas
-reales de las ejecuciones del mismo PR.
+La primera ejecución [45730055514](https://github.com/Master6869/mini-inventario/actions/runs/45730055514)
+terminó en failure antes de ejecutar ningún paso y sin asignar runner.
+
+Se diagnosticó desde la terminal con:
+
+```powershell
+gh pr checks 13 --repo Master6869/mini-inventario
+gh run list --repo Master6869/mini-inventario --branch dia-06-ci --event pull_request
+gh run view 45730055514 --repo Master6869/mini-inventario --log-failed
+gh run view 45730055514 --repo Master6869/mini-inventario --json jobs,conclusion,url
+gh api repos/Master6869/mini-inventario/check-runs/139609535654/annotations
+```
+
+`--log-failed` indicó que no había log; la consulta del job mostró cero pasos.
+La anotación exacta de GitHub fue:
+
+> The job was not started because your account is locked due to a billing issue.
+
+Por eso no se modificó código para intentar resolverlo: el bloqueo es de la
+cuenta y requiere revisión del usuario en GitHub. Actions está habilitado en
+el repositorio; eso no elimina un bloqueo de cuenta. No se ha completado el
+ciclo verde → rojo → verde ni se declara que este fallo pruebe la capacidad
+de Playwright para detectar errores.
+
+La evidencia estructurada está en [bloqueo-github.json](bloqueo-github.json).
+La captura de la página real de GitHub muestra la misma anotación:
+
+![Ejecución detenida por bloqueo de la cuenta](ci-bloqueo-cuenta.png)
+
+Después de desbloquear GitHub, se reintentará el mismo PR; solo tras un primer
+verde se provocará una falla controlada, se explicará la causa antes de corregir
+y se verificará el verde final. El PR no se fusiona con CI sin comprobar.
 
 ## Un error o decisión de la IA
 
@@ -86,7 +119,8 @@ como parte de la actividad y se comprobó la presencia de los cuatro nombres.
 
 La sesión de GitHub CLI necesitaba además el scope workflow para subir el
 archivo de Actions. Se solicitó mediante `gh auth refresh --scopes workflow`
-y el usuario debe completar su autorización en GitHub.
+y el usuario completó la autorización en GitHub. La sesión confirmó el scope
+workflow antes de subir el archivo.
 
 ## Referencias
 

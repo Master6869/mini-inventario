@@ -3,8 +3,8 @@ const path = require('node:path');
 const { chromium } = require('playwright');
 
 const [runId, estado] = process.argv.slice(2);
-if (!/^\d+$/.test(runId || '') || !['verde-inicial', 'rojo', 'verde-final'].includes(estado)) {
-  throw new Error('Uso: node scripts/capturar-ci.cjs RUN_ID verde-inicial|rojo|verde-final');
+if (!/^\d+$/.test(runId || '') || !['verde-inicial', 'rojo', 'verde-final', 'bloqueo-cuenta'].includes(estado)) {
+  throw new Error('Uso: node scripts/capturar-ci.cjs RUN_ID verde-inicial|rojo|verde-final|bloqueo-cuenta');
 }
 const url = `https://github.com/Master6869/mini-inventario/actions/runs/${runId}`;
 (async () => {
